@@ -1,0 +1,2 @@
+class Courseday < ApplicationRecord
+end
