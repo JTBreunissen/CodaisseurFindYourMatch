@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <% flash.each do |key, value| %>
+     <%= content_tag :div, value, class: "flash #{key}" %>
+    <% end %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3>Users</h3>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <div class="row">
+            <% @users.each do |user| %>
+            <div class="col-md-7">
+              <!-- <%= debug user %> -->
+              <h4><%= user.name %></h4>
+              <p><%= user.email %></p>
+              <h4><% if user.is_admin? %> ADMIN <%end%></h4>
+              <hr>
+            </div>
+            <div class="col-md-3 right">
+                <%= form_for [:admin, user], method: :put do |f| %>
+                <%= hidden_field_tag :is_admin, '' %>
+                <%= f.check_box :is_admin %>
+                <%= f.submit "Update" %>
+              <% end %>
+              <!-- <p>Admin yes/no</p> <%= check_box_tag :is_admin, 1, user.is_admin? ? true : false, { class: 'user', data: { id: user.id} } %> -->
+            </div>
+          <% end %>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
