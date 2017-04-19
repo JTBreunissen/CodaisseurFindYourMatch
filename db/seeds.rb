@@ -16,6 +16,12 @@ User.create!(
   is_admin: true,
 )
 
+User.create!(
+  name: 'No Teammate',
+  email: 'noemail@email.com',
+  password: 'fake123',
+  no_teammate: true,
+)
 # 45.times do
 #   Courseday.create!( ["student1", "student2"] )
 # end
