@@ -5,12 +5,12 @@
     <% end %>
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h3>Coursedays</h3>
+        <h3>Couples</h3>
       </div>
       <div class="panel-body">
         <div class="container">
           <div class="row">
-            <% @coursedays.each do |courseday| %>
+            <% @matches.each do |match| %>
             <div class="col-md-7">
               <h4>Courseday name</h4>
               <hr>
@@ -25,3 +25,10 @@
    </div>
  </div>
 </div>
+
+<table><tr>
+<% (Date.today-7..Date.today).each do |day| %>
+  <td>
+    <h4><%= day %></h4>
+<% end %>
+</tr></table>

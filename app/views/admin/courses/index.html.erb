@@ -6,6 +6,7 @@
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3>Courses</h3>
+        <%= link_to "Make new course", new_admin_course_path, class: "btn btn-default", :method => :delete %>
       </div>
       <div class="panel-body">
         <div class="container">
@@ -17,7 +18,7 @@
               <hr>
             </div>
             <div class="col-md-3 right">
-              <%= link_to "Delete", admin_course_path(course), class: "btn btn-default", :confirm => "Are you sure?", :method => :delete %>
+              <%= link_to "Delete", admin_course_path(course), class: "btn btn-default", :method => :delete %>
             </div>
           <% end %>
          </div>

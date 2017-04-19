@@ -10,22 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419095832) do
+ActiveRecord::Schema.define(version: 20170419122954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "coursedays", force: :cascade do |t|
-    t.text     "couples",    default: [],              array: true
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.integer  "amount_of_days"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "first_student_id"
+    t.string   "second_student_id"
+    t.date     "day"
   end
 
   create_table "users", force: :cascade do |t|
