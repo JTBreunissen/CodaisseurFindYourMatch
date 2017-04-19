@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <% flash.each do |key, value| %>
+     <%= content_tag :div, value, class: "flash #{key}" %>
+    <% end %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3>Coursedays</h3>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <div class="row">
+            <% @coursedays.each do |courseday| %>
+            <div class="col-md-7">
+              <h4>Courseday name</h4>
+              <hr>
+            </div>
+            <div class="col-md-3 right">
+
+            </div>
+          <% end %>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>

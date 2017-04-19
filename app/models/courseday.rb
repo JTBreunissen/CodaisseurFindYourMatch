@@ -4,6 +4,11 @@ class Courseday < ApplicationRecord
   def initialize
     # set couples to empty array
     @couples = []
+    @users = User.all
+    @students = []
+    @users.each do |student|
+      @students << student.name if !student.is_admin?
+    end
     # fill coursedays arrays with couples
     determine_couples
   end
@@ -12,7 +17,7 @@ class Courseday < ApplicationRecord
 
   def determine_couples
     # add nil to array in case of odd amount of students
-    users.push(nil) if users.size.odd?
+    students.push(nil) if students.length.odd?
     # amount of coursedays
     coursedays = 45
     # each couple exists of 2 persons, so amount of couples is 1/2 total students

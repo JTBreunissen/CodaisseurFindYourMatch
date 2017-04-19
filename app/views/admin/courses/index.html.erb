@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <% flash.each do |key, value| %>
+     <%= content_tag :div, value, class: "flash #{key}" %>
+    <% end %>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3>Courses</h3>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <div class="row">
+            <% @courses.each do |course| %>
+            <div class="col-md-7">
+              <h4><%= course.name %></h4>
+              <h4>Length of course in days: <%= course.amount_of_days %></h4>
+              <hr>
+            </div>
+            <div class="col-md-3 right">
+              <%= link_to "Delete", admin_course_path(course), class: "btn btn-default", :confirm => "Are you sure?", :method => :delete %>
+            </div>
+          <% end %>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
