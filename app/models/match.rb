@@ -6,8 +6,10 @@ class Match < ApplicationRecord
     couples = makeCouples()
 
     couples.each do |student|
-      new_match = Match.new(first_student: student[0], second_student: student[1], day: day)
+      new_match = Match.create(first_student: student[0], second_student: student[1], day: day)
     end
+
+    # redirect_to admin_matches_url, notice: "Matches created"
   end
 
   def self.makeCouples()

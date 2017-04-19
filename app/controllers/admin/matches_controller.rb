@@ -6,8 +6,7 @@ class Admin::MatchesController < ApplicationController
   end
 
   def create
-    courseday = params[:day]
-    Match.couplesForCourseday(courseday)
+    Match.couplesForCourseday(params[:day])
   end
 
 end
