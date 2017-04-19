@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace 'admin' do
-    resources :coursedays
+    resources :matches
     resources :courses
     resources :users, only: [:index, :update]
   end
