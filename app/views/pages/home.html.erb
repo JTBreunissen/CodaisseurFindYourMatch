@@ -19,14 +19,20 @@
     <div class="jumbotron">
       <div class="container">
         <% if !user_signed_in? %>
-        <h1>Welcome to co-opdaisseur! </h1>
+        <h1>Welcome to Co-opdaisseur! </h1>
         <p>Find out who you are paired up with today, and see who you worked with before, by logging in!</p>
         <p><%= link_to "Log In", new_user_session_path, class: "btn btn-primary btn-lg" %></p>
         <% else %>
         <h1>Welcome to co-opdaisseur! </h1>
-        <h3><%= current_user.name %> </h3>
-        <p>click the link below to see your matches.
-        <p><%= link_to "Matches", admin_matches_path, class: "btn btn-primary btn-lg" %></p>
+          <% if current_user.is_admin? %>
+            <p>Welcome <%= current_user.name %>
+            <p><%= link_to "View and Create Matches", admin_matches_path, class: "btn btn-primary btn-lg" %></p>
+            <p><%= link_to "View and Create Courses", admin_courses_path, class: "btn btn-primary btn-lg" %></p>
+          <% else %>
+            <h3><%= current_user.name %> </h3>
+            <p>click the link below to see your matches.
+            <p><%= link_to "Matches", admin_matches_path, class: "btn btn-primary btn-lg" %></p>
+          <% end %>
         <% end %>
       </div>
     </div>
