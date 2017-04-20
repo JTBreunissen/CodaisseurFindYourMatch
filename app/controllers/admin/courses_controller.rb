@@ -31,7 +31,7 @@ class Admin::CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:name, :amount_of_days)
+    params.require(:course).permit(:name, :amount_of_days, :start_date, :end_date)
   end
 
   def set_course
