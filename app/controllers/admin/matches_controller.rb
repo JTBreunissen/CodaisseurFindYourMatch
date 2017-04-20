@@ -9,6 +9,12 @@ class Admin::MatchesController < ApplicationController
   def create
     Match.removeMatches(params[:day])
     Match.couplesForCourseday(params[:day])
+    redirect_to admin_matches_path, notice: "Matches created"
+  end
+
+  def delete
+    Match.removeMatches(params[:day])
+    redirect_to admin_matches, notice: "Matches deleted"
   end
 
 end

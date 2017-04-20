@@ -5,6 +5,7 @@ class Match < ApplicationRecord
   def self.removeMatches(day)
     #remove current matches for courseday
     existing_matches = Match.where(day: day)
+
     if existing_matches.length > 0
       existing_matches.each do |match|
         match.destroy
@@ -19,9 +20,6 @@ class Match < ApplicationRecord
     couples.each do |student|
       new_match = Match.create(first_student: student[0], second_student: student[1], day: day)
     end
-
-
-    # redirect_to admin_matches_url, notice: "Matches created"
   end
 
   def self.makeCouples()
