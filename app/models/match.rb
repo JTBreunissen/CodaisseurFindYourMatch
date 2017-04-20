@@ -2,12 +2,24 @@ class Match < ApplicationRecord
   belongs_to :first_student, :class_name => 'User', :foreign_key => 'first_student_id'
   belongs_to :second_student, :class_name => 'User', :foreign_key => 'second_student_id'
 
+  def self.removeMatches(day)
+    #remove current matches for courseday
+    existing_matches = Match.where(day: day)
+    if existing_matches.length > 0
+      existing_matches.each do |match|
+        match.destroy
+      end
+    end
+  end
+
   def self.couplesForCourseday(day)
+    day = day.to_date
     couples = makeCouples()
 
     couples.each do |student|
       new_match = Match.create(first_student: student[0], second_student: student[1], day: day)
     end
+
 
     # redirect_to admin_matches_url, notice: "Matches created"
   end

@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   namespace 'admin' do
     resources :matches
     resources :courses
-    resources :users, only: [:index, :update]
+    resources :users, only: [:index, :update, :delete]
   end
 end
