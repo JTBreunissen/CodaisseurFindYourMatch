@@ -1,8 +1,5 @@
 <div class="container">
   <div class="row">
-    <% flash.each do |key, value| %>
-     <%= content_tag :div, value, class: "flash #{key}" %>
-    <% end %>
     <div class="panel panel-primary">
       <div class="panel-heading">
         <h3>Couples</h3>
@@ -10,25 +7,20 @@
       <div class="panel-body">
         <div class="container">
           <div class="row">
-            <% @matches.each do |match| %>
-            <div class="col-md-7">
-              <h4>Courseday name</h4>
-              <hr>
-            </div>
-            <div class="col-md-3 right">
-
-            </div>
-          <% end %>
+            <% (Date.today.beginning_of_week .. (Date.today.end_of_week-2)).each do |day| %>
+              <div class="col-md-7">
+                <h4><%= day.strftime('%d/%m/%Y') %></h4>
+                <% @matches[day].to_a.each do |match| %>
+                <%= day %> | <%= match.first_student.name %> & <%= match.second_student.name %> <br>
+                <%end%>
+              </div>
+              <div class="col-md-3">
+                <%= link_to "Create matches", admin_matches_path(day: day), class: "btn btn-default", method: :create %>
+              </div>
+            <% end %>
          </div>
        </div>
      </div>
    </div>
  </div>
 </div>
-
-<table><tr>
-<% (Date.today-7..Date.today).each do |day| %>
-  <td>
-    <h4><%= day %></h4>
-<% end %>
-</tr></table>
