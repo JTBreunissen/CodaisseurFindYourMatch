@@ -1,2 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+    background-image: url("https://pbs.twimg.com/media/C6Jf2_pWQAEAwyG.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+jumbotron {
+  background-image: url(https://www.codaisseur.com/assets/codaisseur-logo-long-2e9b7b7b839a33128016eb77b49ff2bb6397b6b3552523ee09273d6a5b427861.png)image();
+  background-repeat: no-repeat;
+  background-size:cover;
+}
