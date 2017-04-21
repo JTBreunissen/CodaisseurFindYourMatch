@@ -7,7 +7,7 @@
       <div class="panel-body">
         <div class="container">
           <div class="row">
-            <% (Date.today.beginning_of_week .. (Date.today.end_of_week-2)).each do |day| %>
+            <% (Date.today.beginning_of_week .. Date.today.end_of_week).each do |day| %>
               <div class="col-md-7">
                 <h4><%= day.strftime('%d/%m/%Y') %></h4>
                 <% @matches[day].to_a.each do |match| %>
