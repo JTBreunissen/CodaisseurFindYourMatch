@@ -1,24 +1,3 @@
-# README
+# Individual project for the Codaisseur Academy Web Development Bootcamp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This Ruby on rails project deals with the assignment of creating an algorythm to match up students in random pairs per day.
